@@ -1,4 +1,4 @@
-package com.mmendoza.soccerapi.domain;
+package com.mmendoza.soccerapi.domain.entities;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -13,7 +13,7 @@ public class Label {
 
     private Integer labelId;
 
-    private String name;
+    private String description;
 
     // private News news;
 }
