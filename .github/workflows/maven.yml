@@ -1,0 +1,36 @@
+name: Java CI with Maven
+
+on:
+  push:
+    branches: [ "dev/*" ]
+  pull_request:
+    branches: [ "main" ]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+          cache: maven
+
+      # Run Maven tests
+      - name: Run Maven tests
+        run: mvn -B clean test --file pom.xml
+
+      # Build with Maven
+      - name: Build with Maven
+        run: mvn -B package --file pom.xml
+
+      # Delete branch (if tests and build pass)
+      - name: Delete branch
+        if: ${{ startsWith(github.ref, 'refs/heads/dev/') }}
+        run: |
+          branch_name=${GITHUB_REF##*/}
+          echo "Deleting branch $branch_name"
+          git push origin --delete $branch_name
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
