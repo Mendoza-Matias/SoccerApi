@@ -1,3 +1,5 @@
+spring:
+  profiles:
+    active: ${PROFILE}
 server:
   port: 9095
-
