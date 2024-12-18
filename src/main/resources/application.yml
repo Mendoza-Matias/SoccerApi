@@ -1,2 +1,3 @@
 server:
-  port: ${ PORT }
+  port: 9095
+
