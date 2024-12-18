@@ -17,14 +17,19 @@ jobs:
           distribution: 'temurin'
           cache: maven
 
+      # 1° Clean Maven
+      - name: Clean Maven
+        run: mvn - B clean --file pom.xml
+
+      # 2° Compile Maven
       - name: Compile Maven
         run: mvn -B compile --file pom.xml
 
-      # Run Maven tests
+      # 3° Run Maven test
       - name: Run Maven tests
-        run: mvn -B clean test --file pom.xml
+        run: mvn -B test --file pom.xml
 
-      # Build with Maven
+      # 4° Run Maven test
       - name: Build with Maven
         run: mvn -B package --file pom.xml
 
