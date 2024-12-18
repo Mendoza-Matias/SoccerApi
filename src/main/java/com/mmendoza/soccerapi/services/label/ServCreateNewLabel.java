@@ -10,9 +10,6 @@ import org.springframework.stereotype.Component;
 @Component
 public class ServCreateNewLabel extends GenericServices<String, Void> {
 
-    @Autowired
-    private ILabelRepository labelRepository;
-
     @Override
     protected Void execute(String request) {
 
