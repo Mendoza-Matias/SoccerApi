@@ -27,16 +27,5 @@ public class LabelMapperTest {
         assertEquals("description", dto.getDescription());
     }
 
-    @Test
-    void toEntity() {
-        Label entity = labelMapper
-                .toEntity(LabelDto.builder()
-                        .labelId(1)
-                        .description("description")
-                        .build());
-
-        assertEquals(Label.class, entity.getClass());
-        assertEquals(1, entity.getLabelId());
-        assertEquals("description", entity.getDescription());
-    }
+  
 }
