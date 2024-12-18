@@ -19,7 +19,7 @@ jobs:
 
       # 1° Clean Maven
       - name: Clean Maven
-        run: mvn - B clean --file pom.xml
+        run: mvn -B clean --file pom.xml
 
       # 2° Compile Maven
       - name: Compile Maven
