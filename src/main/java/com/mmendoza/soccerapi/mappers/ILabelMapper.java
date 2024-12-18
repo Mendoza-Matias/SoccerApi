@@ -8,10 +8,8 @@ import org.mapstruct.Mapping;
 import org.mapstruct.Mappings;
 import org.mapstruct.factory.Mappers;
 
-@Mapper
+@Mapper(componentModel = "spring")
 public interface ILabelMapper {
-
-    ILabelMapper INSTANCE = Mappers.getMapper(ILabelMapper.class);
 
     @Mappings({
             @Mapping(source = "labelId", target = "labelId"),
