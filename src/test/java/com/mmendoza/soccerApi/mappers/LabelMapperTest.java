@@ -8,15 +8,11 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-@SpringBootTest /* Loads the application context and allows testing the mapper by injecting it. */
 public class LabelMapperTest {
-
-    @Autowired
-    private ILabelMapper labelMapper;
 
     @Test
     void toDto() {
-        LabelDto dto = labelMapper.
+        LabelDto dto = ILabelMapper.INSTANCE.
                 toDto(Label.builder()
                         .labelId(1)
                         .description("description")
@@ -27,5 +23,16 @@ public class LabelMapperTest {
         assertEquals("description", dto.getDescription());
     }
 
-  
+    @Test
+    void toEntity() {
+        Label entity = ILabelMapper.INSTANCE
+                .toEntity(LabelDto.builder()
+                        .labelId(1)
+                        .description("description")
+                        .build());
+
+        assertEquals(Label.class, entity.getClass());
+        assertEquals(1, entity.getLabelId());
+        assertEquals("description", entity.getDescription());
+    }
 }
