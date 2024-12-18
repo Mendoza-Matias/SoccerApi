@@ -8,11 +8,15 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+@SpringBootTest
 public class LabelMapperTest {
+
+    @Autowired
+    private ILabelMapper labelMapper;
 
     @Test
     void toDto() {
-        LabelDto dto = ILabelMapper.INSTANCE.
+        LabelDto dto = labelMapper.
                 toDto(Label.builder()
                         .labelId(1)
                         .description("description")
@@ -25,7 +29,7 @@ public class LabelMapperTest {
 
     @Test
     void toEntity() {
-        Label entity = ILabelMapper.INSTANCE
+        Label entity = labelMapper
                 .toEntity(LabelDto.builder()
                         .labelId(1)
                         .description("description")
