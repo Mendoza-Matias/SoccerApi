@@ -6,6 +6,10 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @SpringBootTest
@@ -25,6 +29,17 @@ public class LabelMapperTest {
         assertEquals(LabelDto.class, dto.getClass());
         assertEquals(1, dto.getLabelId());
         assertEquals("description", dto.getDescription());
+    }
+
+    @Test
+    void toEntityList() {
+        List<LabelDto> dto = labelMapper.toDtoList(
+                new ArrayList<>(Arrays.asList(Label.builder().labelId(1).description("Futbol").build()))
+        );
+
+        assertEquals(LabelDto.class, dto.get(0).getClass());
+        assertEquals(1, dto.get(0).getLabelId());
+        assertEquals("Futbol", dto.get(0).getDescription());
     }
 
     @Test
