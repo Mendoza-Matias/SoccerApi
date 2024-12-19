@@ -1,4 +1,4 @@
-package com.mmendoza.soccerapi.controller.handlers;
+package com.mmendoza.soccerapi.controller;
 
 import com.mmendoza.soccerapi.services.label.ServCreateNewLabel;
 import org.junit.jupiter.api.BeforeEach;

@@ -1,4 +1,4 @@
-package com.mmendoza.soccerapi.controller.handlers;
+package com.mmendoza.soccerapi.controller;
 
 import com.mmendoza.soccerapi.domain.dto.label.LabelDto;
 import com.mmendoza.soccerapi.domain.entities.Label;
