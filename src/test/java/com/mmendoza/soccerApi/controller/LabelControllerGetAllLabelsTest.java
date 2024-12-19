@@ -1,9 +1,8 @@
-package com.mmendoza.soccerapi.controller.handlers;
+package com.mmendoza.soccerapi.controller;
 
 import com.mmendoza.soccerapi.domain.dto.label.LabelDto;
 import com.mmendoza.soccerapi.domain.entities.Label;
 import com.mmendoza.soccerapi.mappers.ILabelMapper;
-import com.mmendoza.soccerapi.repository.ILabelRepository;
 import com.mmendoza.soccerapi.services.label.ServGetAllLabels;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
