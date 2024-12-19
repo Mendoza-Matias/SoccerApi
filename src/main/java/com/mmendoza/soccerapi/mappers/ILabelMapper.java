@@ -8,6 +8,8 @@ import org.mapstruct.Mapping;
 import org.mapstruct.Mappings;
 import org.mapstruct.factory.Mappers;
 
+import java.util.List;
+
 @Mapper(componentModel = "spring")
 public interface ILabelMapper {
 
@@ -16,6 +18,8 @@ public interface ILabelMapper {
             @Mapping(source = "description", target = "description")
     })
     LabelDto toDto(Label label);
+
+    List<LabelDto> toDtoList(List<Label> labels);
 
     @InheritInverseConfiguration(name = "toDto")
     Label toEntity(LabelDto labelDto);

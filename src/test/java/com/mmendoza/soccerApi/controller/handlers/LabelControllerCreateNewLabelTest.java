@@ -40,6 +40,8 @@ class LabelControllerCreateNewLabelTest {
 
         ResponseEntity<Void> result = labelController.createNewLabel(description);
 
+        Mockito.verify(servCreateNewLabel).run(Mockito.any(String.class));
+
         assertEquals(HttpStatus.OK, result.getStatusCode());
 
         assertEquals(description, captor.getValue());
